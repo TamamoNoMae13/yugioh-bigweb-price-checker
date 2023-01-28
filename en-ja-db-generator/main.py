@@ -34,8 +34,8 @@ if __name__ == '__main__':
 					now = get_epoch_now()
 					if card_names is None:
 						print(f'Cannot find on Yugipedia, id: {code}')
-					elif type(card_names) is int and 500 <= card_names <= 599:
-						print(f'API call error at id: {code}')
+					elif type(card_names) is int and 400 <= card_names <= 599:
+						print(f'API call error at id: {code}, status: {card_names}')
 						success = False
 					elif type(card_names) is tuple:
 						if existed_record is None:
@@ -61,7 +61,7 @@ if __name__ == '__main__':
 					if i > len(passcodes):
 						i = 0
 
-				print(f'Next in queue: {passcodes[i]}, {passcodes[i+1]}, {passcodes[i+2]}, ...')
+				print(f'Next in queue: {passcodes[i]}, {passcodes[i+1]}, {passcodes[i+2]}, ... ({len(passcodes)} left)')
 
 		print('Try to close the connection to SQLite file.')
 		conn.close()
